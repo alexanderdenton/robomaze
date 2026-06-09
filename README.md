@@ -1,5 +1,5 @@
 
-> Open this page at [https://alexanderdenton.github.io/robomaze/](https://alexanderdenton.github.io/robomaze/)
+> Open this page at [https://alexanderdenton.dev/robomaze/](https://alexanderdenton.dev/robomaze/)
 
 ## Use as Extension
 
@@ -8,7 +8,7 @@ This repository can be added as an **extension** in MakeCode.
 * open [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * click on **New Project**
 * click on **Extensions** under the gearwheel menu
-* search for **https://github.com/atden04/robomaze** and import
+* search for **https://github.com/alexanderdenton/robomaze** and import
 
 ## Edit this project
 
@@ -16,7 +16,7 @@ To edit this repository in MakeCode.
 
 * open [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * click on **Import** then click on **Import URL**
-* paste **https://github.com/atden04/robomaze** and click import
+* paste **https://github.com/alexanderdenton/robomaze** and click import
 
 #### Metadata (used for search, rendering)
 
