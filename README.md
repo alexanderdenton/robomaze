@@ -1,5 +1,5 @@
 
-> Open this page at [https://atden04.github.io/robomaze/](https://atden04.github.io/robomaze/)
+> Open this page at [https://alexanderdenton.github.io/robomaze/](https://alexanderdenton.github.io/robomaze/)
 
 ## Use as Extension
 
