@@ -9,7 +9,7 @@ Follow these steps in order. You do not need to write all of the motor-control c
 
 ## Setup - Open Microsoft MakeCode
 
-1. Go to [Microsoft MakeCode for micro:bit](https://makecode.microbit.org/).
+1. Go to [Microsoft MakeCode for micro:bit](https://makecode.microbit.org/){: target="_blank" rel="noopener noreferrer" }.
 2. Create a new project called **RoboMaze**.
 3. Open **Extensions**.
 4. Search for the **Kitronik :MOVE Motor** extension and add it.
