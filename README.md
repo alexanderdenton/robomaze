@@ -18,6 +18,15 @@ To edit this repository in MakeCode.
 * click on **Import** then click on **Import URL**
 * paste **https://github.com/alexanderdenton/robomaze** and click import
 
+## License
+
+RoboMaze is open-source software licensed under the MIT License.
+
+You are free to use, modify and distribute this software in accordance with the terms of the license. The software is provided "as is", without warranty, and the author accepts no liability for its use.
+
+See the [LICENSE](LICENSE) file for the full license terms.
+
+
 #### Metadata (used for search, rendering)
 
 * for PXT/microbit
