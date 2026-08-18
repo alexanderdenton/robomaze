@@ -11,10 +11,27 @@ Follow these steps in order. You do not need to write all of the motor-control c
 
 1. Go to [Microsoft MakeCode for micro:bit](https://makecode.microbit.org/){: target="_blank" rel="noopener noreferrer" }.
 2. Create a new project called **RoboMaze**.
-3. Open **Extensions**.
-4. Search for the **Kitronik :MOVE Motor** extension and add it.
-5. Switch the editor from Blocks to **Python**.
-6. Open the [Starter Code]({{ '/starter-code/' | relative_url }}), copy it, and paste it into MakeCode.
+3. Open **Code options**.
+4. In the drop-down list, select **Python Only**.
+5. Click **Create**.
+
+![Create a MakeCode project called RoboMaze]({{ '/assets/images/create-project-default.png' | relative_url }})
+
+![Change Code options to Python Only before creating the project]({{ '/assets/images/create-project-python-only.png' | relative_url }})
+
+Because you selected **Python Only**, MakeCode will open in the Python editor so you cannot accidentally work in Blocks or JavaScript.
+
+6. In the MakeCode editor, on the **left-hand side**, click **Extensions**.
+7. Search for **Kitronik :MOVE Motor**.
+8. Click the **kitronik-move-motor** extension tile.
+
+![The Extensions option is on the left-hand side of the MakeCode editor]({{ '/assets/images/makecode-editor-extensions.png' | relative_url }})
+
+![Select the kitronik-move-motor extension tile]({{ '/assets/images/kitronik-move-motor-tile.png' | relative_url }})
+
+9. Open the [Starter Code]({{ '/starter-code/' | relative_url }}), copy it, and paste it into MakeCode.
+
+Keep the RoboMaze website open in one tab and MakeCode open in another.
 
 At the top of the starter code you will find:
 

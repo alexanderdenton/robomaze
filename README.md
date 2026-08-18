@@ -82,3 +82,15 @@ RoboMaze is open-source software released under the MIT License.
 Copyright © 2026 Alexander Denton.
 
 See [LICENSE](LICENSE) for the full licence terms.
+
+
+## Website Setup Visuals
+
+The website includes setup screenshots showing pupils how to:
+
+- create a MakeCode project called `RoboMaze`;
+- change **Code options** to **Python Only**;
+- click **Extensions** on the left-hand side;
+- select the **kitronik-move-motor** extension tile.
+
+These visuals make the setup stage more explicit for classroom use.
