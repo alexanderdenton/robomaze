@@ -1,54 +1,275 @@
-# Debrief
-It is your mission, if you choose to accept it, to write the code for the micromouse to navigate a maze without the use of a controller.
-The mouse will enter the maze and navigate itself through the maze to the exit.
-It will do so using python code you have written
-There will be no way for you to change the course of the mouse once it has entered the maze.
+# RoboMaze PowerPoint Slide Text — Condensed Version
 
-You will be provided with “cheat sheets” that will contain the commands you’ll need to program the mouse. Use these commands to implement each of the tasks.
+## Slide 1 - Title
 
-# Setup
-Follow demonstration on screen to setup your development environment.
+# RoboMaze
 
-Tip: You’ll need to go to https://makecode.microbit.org/
+**Learn to code with the BBC micro:bit**
 
-A template for your code can be found here: 
-https://github.com/Atden04/robomaze/blob/master/main.py
+**Program. Test. Escape the maze.**
 
-# Task 1 - Analysis of the maze
-Can you find the correct path out of the maze? Is this the shortest way?
-How many right turns are there?
-How many left turns are there?
+---
 
-In what order do the turns occur. Hint - This will be needed later!
+## Slide 2 - Mission Briefing
 
-# Task 2 - Please turn right
-As you can see from the analysis of the maze, you will need the mouse to make turns. 
-But how do we do this?
+It is your mission, **if you choose to accept it**, to program the MicroMouse to escape the maze.
 
-Add code to the turn_right_90 function to turn the mouse **right** by 90 degrees. 
-Hint – you’ll want to turn the wheels individually.
-(Don’t forget to use your cheat sheets to help you!)
+- No controller
+- No changing course once it starts
+- Your Python code must guide it to the exit
 
-# Task 3 - Now turn left
-Now we need to copy and adapt the function for turning the mouse right.
-(Don’t forget to give your new function a different name)
+**Your goal: Escape the maze!**
 
-Hint – Reverse the wheel movement
+---
 
-DO NOT use the turn right method 3x to turn left. This is cheating!
+## Slide 3 - Setup
 
-# Task 4 - Object ahead!
-The mouse can now turn left or right. Before we can program the mouse to move forward on it’s own we first need to learn how the sensors at the front work.
+Go to:
 
-Step 1 – Within the on_forever function display the distance from the mouse to the object in front of it.
-Step 2 – Use the number displayed to work out how far away you want the mouse to stop from the wall.
+**robomaze.alexanderdenton.dev**
 
-# Task 5 - Move forward
-Unlike turning, we want both of the motors to move in the same direction.
-We want the mouse to move forward while the measured distance is less than the distance you calculated in the previous task.
+Then:
 
-Write a new function move_to_wall. At the end of the function don’t forget the pause and stop commands (like at the end of turn_right_90).
+1. Open the **Getting Started** page
+2. Open **Microsoft MakeCode**
+3. Add the **Kitronik :MOVE Motor** extension
+4. Switch to **Python**
+5. Copy the **Starter Code**
 
+**Keep RoboMaze and MakeCode open in separate tabs.**
 
-# Task 6 - Escape the Maze
-Finally, using the functions you’ve written so far, move_to_wall, turn_right_90, and turn_left_90, you will piece these all together to program the mouse to exit the maze.
+---
+
+## Slide 4 - Meet Your Variables
+
+Three values control the MicroMouse:
+
+```python
+speed = 0
+turnTime = 0
+distanceToWall = 0
+```
+
+- `speed` — motor speed
+- `turnTime` — how long it turns
+- `distanceToWall` — how close it gets to a wall
+
+**Test. Adjust. Try again.**
+
+---
+
+## Slide 5 - Task 1: Analyse the Maze
+
+Before we program the route, we need to understand it.
+
+Work out:
+
+- How many **right turns**?
+- How many **left turns**?
+- What order do they happen in?
+
+**Write the route down.**
+
+Hint: You will need it later!
+
+---
+
+## Slide 6 - Task 2: Please Turn Right
+
+The right-turn code is already written.
+
+Your job:
+
+**Make it turn approximately 90°.**
+
+Experiment with:
+
+```python
+speed
+turnTime
+```
+
+Too far? Too short?
+
+**Adjust and test again.**
+
+---
+
+## Slide 7 - Task 3: Now Turn Left
+
+We already have a right turn.
+
+So...
+
+**Copy it. Adapt it.**
+
+Create:
+
+```python
+turn_left_90()
+```
+
+Hint:
+
+**Which wheel should move forwards? Which should move backwards?**
+
+And remember...
+
+**Three right turns is cheating! 😄**
+
+---
+
+## Slide 8 - Task 4: Object Ahead!
+
+The ultrasonic sensor measures the distance in front of the MicroMouse.
+
+Display the reading:
+
+```python
+basic.show_number(Kitronik_Move_Motor.measure())
+```
+
+Test it at different distances.
+
+Then choose:
+
+```python
+distanceToWall
+```
+
+**How close should the MicroMouse stop?**
+
+---
+
+## Slide 9 - Task 5: Move Forward
+
+`move_to_wall()` is already written.
+
+It keeps moving while:
+
+```python
+distance > distanceToWall
+```
+
+Your job:
+
+**Test your stopping distance.**
+
+Does it stop:
+
+- too close?
+- too far away?
+- just right?
+
+Adjust `distanceToWall` and try again.
+
+---
+
+## Slide 10 - Task 6: Escape the Maze
+
+You now have:
+
+```python
+move_to_wall()
+turn_right_90()
+turn_left_90()
+```
+
+Use the route from **Task 1**.
+
+Put the function calls into:
+
+```python
+navigate_maze()
+```
+
+Then...
+
+**Place the MicroMouse at the entrance and see if it escapes!**
+
+---
+
+## Slide 11 - Something Went Wrong?
+
+Good.
+
+That means you are programming.
+
+Check:
+
+- the route
+- `speed`
+- `turnTime`
+- `distanceToWall`
+- your function calls
+
+Use the **RoboMaze Cheat Sheet** if you get stuck.
+
+If everything has gone horribly wrong...
+
+**Copy a fresh Starter Code from the website.**
+
+---
+
+## Slide 12 - Mission Complete
+
+Did your MicroMouse escape?
+
+What did you have to change?
+
+What controlled:
+
+- the speed?
+- the turning?
+- the stopping distance?
+- the route?
+
+**Programming is testing, debugging and improving.**
+
+**Mission complete.**
+
+---
+
+# Speaker Notes / Delivery Guide
+
+These slides are deliberately short.
+
+The RoboMaze website contains the detailed instructions, code examples and cheat sheet. Use the PowerPoint to introduce each stage, explain the challenge verbally, and then direct pupils back to the website when they need the exact steps.
+
+## Suggested Delivery
+
+### Setup
+
+Demonstrate the setup live rather than asking pupils to read a long list from the slide.
+
+Keep the Setup slide visible while pupils open the website and MakeCode.
+
+### Tasks 2, 4 and 5
+
+Encourage pupils to test the physical MicroMouse rather than guessing values.
+
+The important lesson is the cycle:
+
+**Change → Test → Observe → Improve**
+
+### Task 3
+
+Emphasise that copying and adapting working code is a normal programming technique.
+
+They are not expected to memorise the Kitronik motor commands.
+
+### Task 6
+
+Bring the activity back to the route they worked out in Task 1.
+
+The final challenge is mainly about sequencing their working functions correctly.
+
+### If Pupils Get Stuck
+
+Point them towards:
+
+1. The RoboMaze Cheat Sheet
+2. The Starter Code page
+3. The task instructions on the website
+
+The PowerPoint should remain the presentation layer rather than becoming a second copy of the website.
