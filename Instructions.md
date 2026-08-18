@@ -1,54 +1,255 @@
-# Debrief
-It is your mission, if you choose to accept it, to write the code for the micromouse to navigate a maze without the use of a controller.
-The mouse will enter the maze and navigate itself through the maze to the exit.
-It will do so using python code you have written
-There will be no way for you to change the course of the mouse once it has entered the maze.
+# RoboMaze
 
-You will be provided with “cheat sheets” that will contain the commands you’ll need to program the mouse. Use these commands to implement each of the tasks.
+## Your Mission
 
-# Setup
-Follow demonstration on screen to setup your development environment.
+Your mission is to program a MicroMouse to navigate through a maze **without using a controller**.
 
-Tip: You’ll need to go to https://makecode.microbit.org/
+Once the MicroMouse enters the maze, you will not be able to change its direction manually. It must reach the exit using the Python code you have prepared.
 
-A template for your code can be found here: 
-https://github.com/Atden04/robomaze/blob/master/main.py
+You will have:
 
-# Task 1 - Analysis of the maze
-Can you find the correct path out of the maze? Is this the shortest way?
-How many right turns are there?
-How many left turns are there?
+- starter code;
+- this set of instructions;
+- a RoboMaze cheat sheet;
+- a physical maze and MicroMouse to test.
 
-In what order do the turns occur. Hint - This will be needed later!
+You do **not** need to write everything from scratch. Some code is provided so that you can focus on testing, changing values, adapting code and building the final route.
 
-# Task 2 - Please turn right
-As you can see from the analysis of the maze, you will need the mouse to make turns. 
-But how do we do this?
+---
 
-Add code to the turn_right_90 function to turn the mouse **right** by 90 degrees. 
-Hint – you’ll want to turn the wheels individually.
-(Don’t forget to use your cheat sheets to help you!)
+# Getting Started
 
-# Task 3 - Now turn left
-Now we need to copy and adapt the function for turning the mouse right.
-(Don’t forget to give your new function a different name)
+## 1. Open Microsoft MakeCode
 
-Hint – Reverse the wheel movement
+Go to:
 
-DO NOT use the turn right method 3x to turn left. This is cheating!
+**https://makecode.microbit.org/**
 
-# Task 4 - Object ahead!
-The mouse can now turn left or right. Before we can program the mouse to move forward on it’s own we first need to learn how the sensors at the front work.
+Create a new micro:bit project and give it a name such as:
 
-Step 1 – Within the on_forever function display the distance from the mouse to the object in front of it.
-Step 2 – Use the number displayed to work out how far away you want the mouse to stop from the wall.
+`RoboMaze`
 
-# Task 5 - Move forward
-Unlike turning, we want both of the motors to move in the same direction.
-We want the mouse to move forward while the measured distance is less than the distance you calculated in the previous task.
+---
 
-Write a new function move_to_wall. At the end of the function don’t forget the pause and stop commands (like at the end of turn_right_90).
+## 2. Add the Kitronik :MOVE Motor extension
 
+The MicroMouse uses the Kitronik :MOVE Motor board.
+
+In MakeCode:
+
+1. Open **Extensions**.
+2. Search for the Kitronik :MOVE Motor extension.
+3. Add the extension to your project.
+4. Return to the editor.
+
+Your teacher may demonstrate this part on screen.
+
+---
+
+## 3. Switch to Python
+
+Switch the MakeCode editor from Blocks to **Python**.
+
+---
+
+## 4. Copy the Starter Code
+
+Open the **Starter Code** from the RoboMaze website.
+
+Copy all of it and paste it into the MakeCode Python editor.
+
+At the top of the program you will see three important variables:
+
+```python
+speed = 0
+turnTime = 0
+distanceToWall = 0
+```
+
+You will change these values during the activity.
+
+If your code gets badly broken, you can always return to the website and copy a fresh version of the starter code.
+
+---
+
+# Task 1 - Analyse the Maze
+
+Before changing any code, study the maze.
+
+Work out:
+
+- What route reaches the exit?
+- Is it the shortest route?
+- How many right turns are needed?
+- How many left turns are needed?
+- In what order do the turns happen?
+
+Write the order down.
+
+You will need it for the final task.
+
+---
+
+# Task 2 - Calibrate the Right Turn
+
+The code for turning right has already been written for you.
+
+Your job is to make it turn by approximately **90 degrees**.
+
+The function uses two variables from the top of the program:
+
+```python
+speed
+turnTime
+```
+
+`speed` controls how fast the motors move.
+
+`turnTime` controls how long the motors run before stopping.
+
+Change these values, test the MicroMouse and keep adjusting them until `turn_right_90()` produces a reliable 90 degree turn.
+
+You do not need to change the motor commands inside `turn_right_90()` for this task.
+
+---
+
+# Task 3 - Now Turn Left
+
+You already have working code for turning right.
+
+Create a new function called:
+
+```python
+turn_left_90()
+```
+
+You do **not** need to write it from scratch.
+
+Copy the code from:
+
+```python
+turn_right_90()
+```
+
+and change only what is needed to make the MicroMouse turn in the opposite direction.
+
+Think about:
+
+- which wheel moves forwards;
+- which wheel moves backwards.
+
+Use the cheat sheet if you need help.
+
+**Do not call `turn_right_90()` three times to turn left.**
+
+---
+
+# Task 4 - Test the Ultrasonic Sensor
+
+The MicroMouse has an ultrasonic sensor at the front. It measures the distance between the MicroMouse and the object or wall in front of it.
+
+To see the measured distance, temporarily use:
+
+```python
+basic.show_number(Kitronik_Move_Motor.measure())
+```
+
+Test the sensor at different distances from a wall.
+
+Choose how close you want the MicroMouse to get before it stops.
+
+Store that distance in the variable at the top of your program:
+
+```python
+distanceToWall = 0
+```
+
+Replace `0` with the distance you have chosen.
+
+The ultrasonic units have already been set to centimetres in the starter code.
+
+---
+
+# Task 5 - Move to the Wall
+
+The `move_to_wall()` function has already been written for you.
+
+You do not need to build the motor-control loop yourself.
+
+The important part is this condition:
+
+```python
+while Kitronik_Move_Motor.measure() > distanceToWall:
+```
+
+This means:
+
+> Keep moving while the measured distance is greater than the chosen stopping distance.
+
+The function stops the motors when the MicroMouse reaches `distanceToWall`.
+
+Test the function using the value you chose in Task 4.
+
+If the MicroMouse stops too close or too far away, change:
+
+```python
+distanceToWall
+```
+
+and test it again.
+
+---
 
 # Task 6 - Escape the Maze
-Finally, using the functions you’ve written so far, move_to_wall, turn_right_90, and turn_left_90, you will piece these all together to program the mouse to exit the maze.
+
+You now have three movement functions:
+
+```python
+move_to_wall()
+turn_right_90()
+turn_left_90()
+```
+
+Complete:
+
+```python
+navigate_maze()
+```
+
+by calling those functions in the order you worked out during Task 1.
+
+For example:
+
+```python
+def navigate_maze():
+    move_to_wall()
+    turn_right_90()
+    move_to_wall()
+```
+
+Continue the sequence until the MicroMouse has a complete route from the entrance to the exit.
+
+Then test it in the maze.
+
+If something does not quite work, think about whether you need to adjust:
+
+- `speed`;
+- `turnTime`;
+- `distanceToWall`;
+- the order of your function calls.
+
+---
+
+# Need Help?
+
+Use the **RoboMaze Cheat Sheet** whenever you forget what a command does.
+
+If your program becomes badly broken, copy a fresh version of the **Starter Code** from the RoboMaze website.
+
+---
+
+# Completed Solution
+
+A completed example solution is kept in the RoboMaze repository for teachers, maintainers and people using the activity independently.
+
+If you are completing the classroom activity, try the tasks yourself before looking at the solution.
