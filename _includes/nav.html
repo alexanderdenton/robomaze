@@ -12,5 +12,11 @@
       <a href="{{ '/cheat-sheet/' | relative_url }}"{% if page.url contains '/cheat-sheet/' %} aria-current="page"{% endif %}>Cheat Sheet</a>
       <a href="{{ '/starter-code/' | relative_url }}"{% if page.url contains '/starter-code/' %} aria-current="page"{% endif %}>Starter Code</a>
     </div>
+
+    <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch colour theme">
+      <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+      <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+      <span class="visually-hidden theme-toggle-label">Dark mode</span>
+    </button>
   </nav>
 </header>
