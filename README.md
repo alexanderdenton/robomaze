@@ -1,33 +1,49 @@
+# RoboMaze
 
-> Open this page at [https://alexanderdenton.dev/robomaze/](https://alexanderdenton.dev/robomaze/)
+RoboMaze is a classroom programming activity for secondary-school pupils using a BBC micro:bit, Microsoft MakeCode Python and the Kitronik :MOVE Motor.
 
-## Use as Extension
+The pupil-facing resources are intended to be published through GitHub Pages.
 
-This repository can be added as an **extension** in MakeCode.
+## Website
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for **https://github.com/alexanderdenton/robomaze** and import
+Preferred public address:
 
-## Edit this project
+`https://robomaze.alexanderdenton.dev`
 
-To edit this repository in MakeCode.
+## Teaching Approach
 
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **Import** then click on **Import URL**
-* paste **https://github.com/alexanderdenton/robomaze** and click import
+The activity deliberately does not ask pupils to build every piece of motor-control code from scratch.
 
-## License
+The starter code provides:
 
-RoboMaze is open-source software licensed under the MIT License.
+- a completed `turn_right_90()` function;
+- a completed `move_to_wall()` function;
+- the hardware setup code.
 
-You are free to use, modify and distribute this software in accordance with the terms of the license. The software is provided "as is", without warranty, and the author accepts no liability for its use.
+Pupils then:
 
-See the [LICENSE](LICENSE) file for the full license terms.
+1. analyse the maze;
+2. adjust `speed` and `turnTime` until the supplied right turn is approximately 90 degrees;
+3. copy and adapt the right-turn code to create `turn_left_90()`;
+4. test the ultrasonic sensor and choose `distanceToWall`;
+5. test the supplied `move_to_wall()` function using that distance;
+6. sequence the three movement functions in `navigate_maze()`.
 
+The variables pupils are expected to adjust are kept together at the top of `main.py` because they are central to the activity.
 
-#### Metadata (used for search, rendering)
+## Repository Contents
 
-* for PXT/microbit
-<script src="https://makecode.com/gh-pages-embed.js"></script><script>makeCodeRender("{{ site.makecode.home_url }}", "{{ site.github.owner_name }}/{{ site.github.repository_name }}");</script>
+- `index.md` - GitHub Pages homepage
+- `Instructions.md` - pupil setup and activity instructions
+- `cheat-sheet.md` - pupil reference sheet
+- `main.py` - pupil starter template
+- `solution.py` - completed example
+- `LICENSE` - open-source licence
+
+## Intended Pupil Workflow
+
+Pupils should normally use the GitHub Pages site rather than GitHub itself.
+
+They can always re-copy `main.py` from the website if their MakeCode project becomes badly broken.
+
+The completed solution remains in the repository for teachers, maintainers and independent users.
