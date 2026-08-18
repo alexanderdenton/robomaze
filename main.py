@@ -1,45 +1,114 @@
+# RoboMaze Starter Code
+# =====================
+# Work through the tasks in order.
+#
+# The important settings are kept together at the top so they are easy to
+# find and change while testing the MicroMouse.
+
+# --------------------------------------------------------------------------
+# IMPORTANT VARIABLES
+# --------------------------------------------------------------------------
+# How fast the motors run.
+# Change this while testing the MicroMouse.
+speed = 0
+
+# How long the motors run when making a turn, in milliseconds.
+# Change this until turn_right_90() makes an approximately 90 degree turn.
+turnTime = 0
+
+# How close the MicroMouse should get to a wall before it stops, in cm.
+# You will choose this value after testing the ultrasonic sensor.
+distanceToWall = 0
+
+# --------------------------------------------------------------------------
+# TASK 2 - TURN RIGHT
+# --------------------------------------------------------------------------
+# This function has been written for you.
+#
+# Your job is to TEST it and adjust the variables above:
+#   speed
+#   turnTime
+#
+# Keep testing until the MicroMouse turns approximately 90 degrees right.
 def turn_right_90():
-    Kitronik_Move_Motor.motor_on(Kitronik_Move_Motor.Motors.MOTOR_LEFT,
-            Kitronik_Move_Motor.MotorDirection.FORWARD,
-            speed)
-    Kitronik_Move_Motor.motor_on(Kitronik_Move_Motor.Motors.MOTOR_RIGHT,
+    Kitronik_Move_Motor.motor_on(
+        Kitronik_Move_Motor.Motors.MOTOR_LEFT,
+        Kitronik_Move_Motor.MotorDirection.FORWARD,
+        speed
+    )
+    Kitronik_Move_Motor.motor_on(
+        Kitronik_Move_Motor.Motors.MOTOR_RIGHT,
         Kitronik_Move_Motor.MotorDirection.REVERSE,
-        speed)
+        speed
+    )
+
     basic.pause(turnTime)
     Kitronik_Move_Motor.stop()
 
-# Task 2 - Add function to turn left
+# --------------------------------------------------------------------------
+# TASK 3 - TURN LEFT
+# --------------------------------------------------------------------------
+# Create a new function called turn_left_90().
+#
+# You do NOT need to write it from scratch.
+# Copy turn_right_90() and change only what is needed to make the
+# MicroMouse turn in the opposite direction.
 
-
-# This functions tells the MicroMouse to move forward until it's a specifiec
-# distance from the wall, this value is stored in 'distanceToWall'.
+# --------------------------------------------------------------------------
+# TASK 5 - MOVE TO THE WALL
+# --------------------------------------------------------------------------
+# This function has also been written for you.
+#
+# It keeps the MicroMouse moving forwards while the measured distance is
+# greater than distanceToWall.
+#
+# Your job is to choose a sensible value for distanceToWall after testing
+# the ultrasonic sensor in Task 4.
 def move_to_wall():
     while Kitronik_Move_Motor.measure() > distanceToWall:
-        Kitronik_Move_Motor.motor_on(Kitronik_Move_Motor.Motors.MOTOR_LEFT,
-                    Kitronik_Move_Motor.MotorDirection.FORWARD,
-                    speed)
-        Kitronik_Move_Motor.motor_on(Kitronik_Move_Motor.Motors.MOTOR_RIGHT,
+        Kitronik_Move_Motor.motor_on(
+            Kitronik_Move_Motor.Motors.MOTOR_LEFT,
             Kitronik_Move_Motor.MotorDirection.FORWARD,
-            speed)
+            speed
+        )
+        Kitronik_Move_Motor.motor_on(
+            Kitronik_Move_Motor.Motors.MOTOR_RIGHT,
+            Kitronik_Move_Motor.MotorDirection.FORWARD,
+            speed
+        )
+
         basic.pause(100)
+
     Kitronik_Move_Motor.stop()
 
-# Task 6 - Escape the maze!
+# --------------------------------------------------------------------------
+# TASK 6 - ESCAPE THE MAZE
+# --------------------------------------------------------------------------
+# Use the functions below in the order you worked out during Task 1:
+#
+#   move_to_wall()
+#   turn_right_90()
+#   turn_left_90()
+#
+# Add each function call needed to navigate from the entrance to the exit.
 def navigate_maze():
-    # Add you functions calls here to navigate the maze
+    pass
 
-    pass  
-
-# DO NOT touch this code - it is needed to stop the mouse from veering to the side.
+# --------------------------------------------------------------------------
+# SETUP CODE - DO NOT CHANGE
+# --------------------------------------------------------------------------
+# This helps compensate if the MicroMouse naturally veers slightly to one
+# side.
 biasValue = 3
-Kitronik_Move_Motor.motor_balance(Kitronik_Move_Motor.SpinDirections.RIGHT, biasValue)
-Kitronik_Move_Motor.set_ultrasonic_units(Kitronik_Move_Motor.Units.CENTIMETERS)
+Kitronik_Move_Motor.motor_balance(
+    Kitronik_Move_Motor.SpinDirections.RIGHT,
+    biasValue
+)
 
-# Add your variables for speed and distance to wall here
-speed = 0
-turnTime = 0
-distanceToWall = 0
+# Make the ultrasonic sensor return distances in centimetres.
+Kitronik_Move_Motor.set_ultrasonic_units(
+    Kitronik_Move_Motor.Units.CENTIMETERS
+)
 
-
-# Calls function to exit the maze
+# Start the maze program.
 navigate_maze()
