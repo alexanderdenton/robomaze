@@ -1,8 +1,18 @@
-makecode:
-  target: microbit
-  platform: microbit
-  home_url: https://makecode.microbit.org/
-theme: jekyll-theme-slate
-include:
-  - assets
+title: RoboMaze
+description: A classroom programming activity using BBC micro:bit, Microsoft MakeCode Python and the Kitronik :MOVE Motor.
+url: "https://robomaze.alexanderdenton.dev"
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+
+exclude:
   - README.md
+  - Instructions-source.md
+  - cheat-sheet-source.md
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

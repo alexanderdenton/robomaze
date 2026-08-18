@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  {% include nav.html %}
+
+  <main class="site-main">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <strong>RoboMaze</strong>
+      <p>Open-source classroom resources for BBC micro:bit and the Kitronik :MOVE Motor.</p>
+      <p>
+        <a href="{{ '/teacher/' | relative_url }}">Teachers &amp; source</a>
+        ·
+        <a href="https://github.com/alexanderdenton/robomaze">GitHub repository</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+</body>
+</html>

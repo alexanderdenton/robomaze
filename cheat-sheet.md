@@ -1,14 +1,13 @@
-# RoboMaze Cheat Sheet
-
-Use this page when you cannot remember what a piece of code does.
-
-You do **not** need to memorise everything here.
-
+---
+title: Cheat Sheet
+permalink: /cheat-sheet/
 ---
 
-## The Three Important Variables
+# RoboMaze Cheat Sheet
 
-These are kept together at the top of your starter code.
+Use this whenever you cannot remember what a piece of code does. You do **not** need to memorise everything here.
+
+## The Three Important Variables
 
 ```python
 speed = 0
@@ -20,49 +19,31 @@ distanceToWall = 0
 
 Controls how fast the motors move.
 
-```python
-speed = 50
-```
-
 ### `turnTime`
 
-Controls how long the motors run during a turn.
-
-The value is in **milliseconds**.
-
-```python
-turnTime = 500
-```
+Controls how long the motors run during a turn, in milliseconds.
 
 ### `distanceToWall`
 
 Controls how close the MicroMouse gets to a wall before `move_to_wall()` stops.
 
-```python
-distanceToWall = 10
-```
-
-These example numbers only show how variables are written. Use the values you discover while testing your own MicroMouse.
+The numbers above are placeholders. Use the values you discover while testing.
 
 ---
 
 ## Comments
 
-Comments are notes for people reading the program.
-
-Python ignores anything after `#`.
-
 ```python
 # This is a comment
 ```
+
+Python ignores anything after `#`.
 
 ---
 
 ## Functions
 
-A function is a named group of instructions.
-
-### Create a function
+Create a function:
 
 ```python
 def my_function():
@@ -70,13 +51,13 @@ def my_function():
     pass
 ```
 
-### Call a function
+Call a function:
 
 ```python
 my_function()
 ```
 
-Do not forget the `()`.
+**Do not forget the `()` when calling a function.**
 
 ---
 
@@ -84,15 +65,15 @@ Do not forget the `()`.
 
 You do not always need to start from nothing.
 
-If one function already performs a similar job, you can copy it, give the new function a different name, and then change only the parts that need to behave differently.
+If you already have a similar working function, copy it and change only the parts that need to behave differently.
 
-This is what you will do when turning the right-turn code into a left-turn function.
+That is what you do when creating `turn_left_90()` from `turn_right_90()`.
 
 ---
 
 ## Turn On a Motor
 
-### Left motor forwards
+Left motor forwards:
 
 ```python
 Kitronik_Move_Motor.motor_on(
@@ -102,7 +83,7 @@ Kitronik_Move_Motor.motor_on(
 )
 ```
 
-### Left motor backwards
+Left motor backwards:
 
 ```python
 Kitronik_Move_Motor.motor_on(
@@ -112,7 +93,7 @@ Kitronik_Move_Motor.motor_on(
 )
 ```
 
-To control the other wheel, change `MOTOR_LEFT` to `MOTOR_RIGHT`.
+Change `MOTOR_LEFT` to `MOTOR_RIGHT` to control the other wheel.
 
 ---
 
@@ -136,13 +117,13 @@ The value is in milliseconds.
 - `500` milliseconds = `0.5` seconds
 - `100` milliseconds = `0.1` seconds
 
-RoboMaze uses the `turnTime` variable in a pause:
+RoboMaze uses:
 
 ```python
 basic.pause(turnTime)
 ```
 
-Changing `turnTime` therefore changes how long the MicroMouse spends turning.
+so changing `turnTime` changes how long the MicroMouse spends turning.
 
 ---
 
@@ -152,9 +133,7 @@ Changing `turnTime` therefore changes how long the MicroMouse spends turning.
 Kitronik_Move_Motor.measure()
 ```
 
-This returns the distance measured by the ultrasonic sensor.
-
-For RoboMaze, the sensor is set to centimetres.
+The starter code configures this measurement in centimetres.
 
 ---
 
@@ -164,13 +143,11 @@ For RoboMaze, the sensor is set to centimetres.
 basic.show_number(Kitronik_Move_Motor.measure())
 ```
 
-This is useful when deciding what value to use for `distanceToWall`.
+Use this in Task 4 to help choose `distanceToWall`.
 
 ---
 
-## `while` Loops
-
-The supplied `move_to_wall()` function contains:
+## Understand the Supplied `while` Loop
 
 ```python
 while Kitronik_Move_Motor.measure() > distanceToWall:
@@ -181,13 +158,11 @@ This means:
 
 > Keep repeating the indented code while the measured distance is greater than `distanceToWall`.
 
-You do not need to write this loop from scratch during the activity, but understanding the condition will help you choose and adjust `distanceToWall`.
-
 ---
 
-## Useful RoboMaze Functions
+## Build the Final Route
 
-By the final task you will have:
+By Task 6 you will have:
 
 ```python
 move_to_wall()
@@ -195,7 +170,7 @@ turn_right_90()
 turn_left_90()
 ```
 
-You can call them one after another:
+Call them in sequence:
 
 ```python
 def navigate_maze():
@@ -204,10 +179,10 @@ def navigate_maze():
     move_to_wall()
 ```
 
-The order of the function calls determines the route taken through the maze.
+The order of the function calls determines the route through the maze.
 
 ---
 
 ## Something Has Gone Wrong?
 
-If your code becomes badly broken, return to the **Starter Code** on the RoboMaze website, copy a fresh version and paste it back into MakeCode.
+If your code becomes badly broken, return to the [Starter Code]({{ '/starter-code/' | relative_url }}) page and copy a fresh version.

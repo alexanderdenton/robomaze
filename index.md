@@ -1,38 +1,48 @@
-# RoboMaze
+---
+title: Home
+permalink: /
+---
 
-## Program a MicroMouse. Escape the maze.
+# Program a MicroMouse. Escape the Maze.
 
 RoboMaze is a classroom programming activity using the **BBC micro:bit**, **Microsoft MakeCode Python** and the **Kitronik :MOVE Motor**.
 
-Your challenge is to prepare a program that allows the MicroMouse to navigate through the maze by itself.
+Your challenge is simple:
 
-> Once it enters the maze, there is no controller. Your code has to do the work.
+> Write the code that allows the MicroMouse to navigate the maze by itself.
+
+Once it enters the maze, there is no controller. Your program has to do the work.
+
+[Start the Activity]({{ '/instructions/' | relative_url }}){: .button }
+[Get Starter Code]({{ '/starter-code/' | relative_url }}){: .button .secondary }
 
 ---
 
-## Start Here
+## Everything You Need
 
-### [Getting Started and Activity Instructions](Instructions.md)
+### Instructions
 
-Set up Microsoft MakeCode and work through Tasks 1–6.
+Set up Microsoft MakeCode and work through the six RoboMaze tasks.
 
-### [Starter Code](main.py)
+[Open Instructions →]({{ '/instructions/' | relative_url }})
 
-Copy this code into the MakeCode Python editor.
+### Starter Code
 
-The starter already contains the right-turn and move-to-wall logic. Your job is to **calibrate important variables, adapt the right-turn code into a left turn, and build the final route**.
+Copy a clean pupil template straight into the MakeCode Python editor.
 
-If your program becomes badly broken, come back here and copy a fresh version.
+[Copy Starter Code →]({{ '/starter-code/' | relative_url }})
 
-### [RoboMaze Cheat Sheet](cheat-sheet.md)
+### Cheat Sheet
 
-Use this whenever you need help remembering a command or understanding one of the important variables.
+Quick reminders for variables, functions, motors, pauses and the ultrasonic sensor.
+
+[Open Cheat Sheet →]({{ '/cheat-sheet/' | relative_url }})
 
 ---
 
 ## The Three Values You Will Test
 
-At the top of the starter code you will find:
+The most important variables are kept together at the top of the starter code:
 
 ```python
 speed = 0
@@ -40,38 +50,14 @@ turnTime = 0
 distanceToWall = 0
 ```
 
-During the activity you will test and change these values so that the MicroMouse works reliably with the physical maze.
+- **`speed`** — how fast the motors run.
+- **`turnTime`** — how long the motors run during a turn.
+- **`distanceToWall`** — how close the MicroMouse gets to a wall before stopping.
 
 ---
 
-## For Teachers and Maintainers
+## Something Gone Horribly Wrong?
 
-### [Completed Solution](solution.py)
+You cannot permanently break the starter program.
 
-A completed example remains available in the repository for teachers, maintainers and independent users.
-
-Pupils completing the classroom activity should try the tasks before looking at the solution.
-
----
-
-## What You Will Practise
-
-RoboMaze introduces or reinforces:
-
-- variables;
-- functions and function calls;
-- reading and adapting existing code;
-- motor control;
-- ultrasonic distance sensing;
-- `while` loops;
-- sequencing;
-- testing and calibration;
-- breaking a larger problem into smaller tasks.
-
----
-
-## Open Source
-
-RoboMaze is open-source software.
-
-See the repository `LICENSE` file for the full license terms.
+If your code becomes badly broken, open the [Starter Code]({{ '/starter-code/' | relative_url }}) page, copy a fresh version and paste it back into MakeCode.
