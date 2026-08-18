@@ -355,3 +355,57 @@ pre {
     padding-top: 2rem;
   }
 }
+
+/* ----------------------------------------------------------
+   Instruction screenshots
+   ---------------------------------------------------------- */
+
+/* Markdown images should support the instructions, not dominate the page. */
+.site-main p:has(> img) {
+  text-align: center;
+  margin: 1.35rem auto 1.75rem;
+}
+
+.site-main img {
+  display: block;
+  width: auto;
+  max-width: min(100%, 760px);
+  height: auto;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface-raised);
+  box-shadow: var(--shadow);
+}
+
+/* The two project-creation dialogs are compact UI screenshots. */
+.site-main img[alt="Create a MakeCode project called RoboMaze"],
+.site-main img[alt="Change Code options to Python Only before creating the project"] {
+  max-width: min(100%, 520px);
+}
+
+/* The full MakeCode editor needs a little more room to remain legible. */
+.site-main img[alt="The Extensions option is on the left-hand side of the MakeCode editor"] {
+  max-width: min(100%, 820px);
+}
+
+/* The extension card should appear close to its real UI scale. */
+.site-main img[alt="Select the kitronik-move-motor extension tile"] {
+  max-width: min(100%, 340px);
+}
+
+/* Slightly tighter spacing between an instruction list and its screenshot. */
+.site-main ol + p:has(> img),
+.site-main p + p:has(> img) {
+  margin-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .site-main img,
+  .site-main img[alt="Create a MakeCode project called RoboMaze"],
+  .site-main img[alt="Change Code options to Python Only before creating the project"],
+  .site-main img[alt="The Extensions option is on the left-hand side of the MakeCode editor"],
+  .site-main img[alt="Select the kitronik-move-motor extension tile"] {
+    max-width: 100%;
+  }
+}

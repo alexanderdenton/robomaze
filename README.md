@@ -94,3 +94,8 @@ The website includes setup screenshots showing pupils how to:
 - select the **kitronik-move-motor** extension tile.
 
 These visuals make the setup stage more explicit for classroom use.
+
+
+The setup screenshots are styled through the shared site CSS so they remain
+responsive and visually secondary to the written instructions. This keeps the
+Markdown files clean when browsing the repository directly on GitHub.
