@@ -5,6 +5,7 @@
 # The important settings are kept together at the top so they are easy to
 # find and change while testing the MicroMouse.
 
+
 # --------------------------------------------------------------------------
 # IMPORTANT VARIABLES
 # --------------------------------------------------------------------------
@@ -17,8 +18,9 @@ speed = 0
 turnTime = 0
 
 # How close the MicroMouse should get to a wall before it stops, in cm.
-# You will choose this value after testing the ultrasonic sensor.
+# You will choose this value during Task 4 after testing the ultrasonic sensor.
 distanceToWall = 0
+
 
 # --------------------------------------------------------------------------
 # TASK 2 - TURN RIGHT
@@ -45,6 +47,7 @@ def turn_right_90():
     basic.pause(turnTime)
     Kitronik_Move_Motor.stop()
 
+
 # --------------------------------------------------------------------------
 # TASK 3 - TURN LEFT
 # --------------------------------------------------------------------------
@@ -54,16 +57,37 @@ def turn_right_90():
 # Copy turn_right_90() and change only what is needed to make the
 # MicroMouse turn in the opposite direction.
 
+
+# --------------------------------------------------------------------------
+# TASK 4 - TEST THE ULTRASONIC SENSOR
+# --------------------------------------------------------------------------
+# Before using move_to_wall(), test how the ultrasonic sensor measures the
+# distance to an object or wall in front of the MicroMouse.
+#
+# TEMPORARILY add this line below the comment:
+#
+# basic.show_number(Kitronik_Move_Motor.measure())
+#
+# Download the program to the micro:bit and move the MicroMouse different
+# distances from a wall. Watch the number shown on the micro:bit.
+#
+# Decide how close you want the MicroMouse to get before stopping.
+# Then update distanceToWall at the TOP of this file.
+#
+# When you have finished Task 4, REMOVE or COMMENT OUT the test line before
+# continuing to Task 5.
+
+
 # --------------------------------------------------------------------------
 # TASK 5 - MOVE TO THE WALL
 # --------------------------------------------------------------------------
-# This function has also been written for you.
+# This function has been written for you.
 #
 # It keeps the MicroMouse moving forwards while the measured distance is
 # greater than distanceToWall.
 #
-# Your job is to choose a sensible value for distanceToWall after testing
-# the ultrasonic sensor in Task 4.
+# Your job is to test it using the distanceToWall value you chose in Task 4.
+# If it stops too close or too far away, change distanceToWall at the top.
 def move_to_wall():
     while Kitronik_Move_Motor.measure() > distanceToWall:
         Kitronik_Move_Motor.motor_on(
@@ -81,6 +105,7 @@ def move_to_wall():
 
     Kitronik_Move_Motor.stop()
 
+
 # --------------------------------------------------------------------------
 # TASK 6 - ESCAPE THE MAZE
 # --------------------------------------------------------------------------
@@ -93,6 +118,7 @@ def move_to_wall():
 # Add each function call needed to navigate from the entrance to the exit.
 def navigate_maze():
     pass
+
 
 # --------------------------------------------------------------------------
 # SETUP CODE - DO NOT CHANGE
@@ -109,6 +135,7 @@ Kitronik_Move_Motor.motor_balance(
 Kitronik_Move_Motor.set_ultrasonic_units(
     Kitronik_Move_Motor.Units.CENTIMETERS
 )
+
 
 # Start the maze program.
 navigate_maze()
