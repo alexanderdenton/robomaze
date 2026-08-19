@@ -1,33 +1,51 @@
 function copyCode(button) {
-  const target = document.getElementById(button.dataset.copyTarget);
-  if (!target) return;
+  const codeBlock = button.closest(".code-wrap")?.querySelector("code");
 
-  navigator.clipboard.writeText(target.innerText).then(() => {
-    const previous = button.textContent;
+  if (!codeBlock) {
+    console.error("Could not find code block to copy.");
+    return;
+  }
+
+  navigator.clipboard.writeText(codeBlock.textContent).then(() => {
+    const previousText = button.textContent;
     button.textContent = "Copied!";
+
     setTimeout(() => {
-      button.textContent = previous;
+      button.textContent = previousText;
+    }, 1600);
+  }).catch((error) => {
+    console.error("Could not copy code:", error);
+    button.textContent = "Copy failed";
+
+    setTimeout(() => {
+      button.textContent = "Copy code";
     }, 1600);
   });
 }
 
 function updateThemeButton() {
   const button = document.querySelector(".theme-toggle");
-  if (!button) return;
 
-  const dark = document.documentElement.dataset.theme === "dark";
+  if (!button) {
+    return;
+  }
+
+  const darkMode = document.documentElement.dataset.theme === "dark";
+
   button.setAttribute(
     "aria-label",
-    dark ? "Switch to light mode" : "Switch to dark mode"
+    darkMode ? "Switch to light mode" : "Switch to dark mode"
   );
+
   button.setAttribute(
     "title",
-    dark ? "Switch to light mode" : "Switch to dark mode"
+    darkMode ? "Switch to light mode" : "Switch to dark mode"
   );
 
   const label = button.querySelector(".theme-toggle-label");
+
   if (label) {
-    label.textContent = dark ? "Light mode" : "Dark mode";
+    label.textContent = darkMode ? "Light mode" : "Dark mode";
   }
 }
 
@@ -48,11 +66,12 @@ document.addEventListener("DOMContentLoaded", () => {
     updateThemeButton();
 
     themeToggle.addEventListener("click", () => {
-      const current = document.documentElement.dataset.theme;
-      const next = current === "dark" ? "light" : "dark";
+      const currentTheme = document.documentElement.dataset.theme;
+      const nextTheme = currentTheme === "dark" ? "light" : "dark";
 
-      document.documentElement.dataset.theme = next;
-      localStorage.setItem("robomaze-theme", next);
+      document.documentElement.dataset.theme = nextTheme;
+      localStorage.setItem("robomaze-theme", nextTheme);
+
       updateThemeButton();
     });
   }

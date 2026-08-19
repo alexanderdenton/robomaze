@@ -12,8 +12,8 @@ The completed solution is intentionally kept separate from the main pupil naviga
 This example includes explanatory docstrings so it can be used as reference material after the activity.
 
 <div class="code-wrap">
-<button class="copy-button" data-copy-target="solution-code" onclick="copyCode(this)">Copy code</button>
-<pre><code id="solution-code"># RoboMaze Completed Example
+<button class="copy-button" type="button" onclick="copyCode(this)">Copy code</button>
+<pre><code># RoboMaze Completed Example
 # ==========================
 # This is a completed example for teachers, maintainers and reference.
 #

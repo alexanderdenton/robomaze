@@ -10,8 +10,8 @@ Copy all of this code and paste it into the Microsoft MakeCode Python editor.
 > **Need to reset?** You can return to this page at any time and copy a clean version.
 
 <div class="code-wrap">
-<button class="copy-button" data-copy-target="starter-code" onclick="copyCode(this)">Copy code</button>
-<pre><code id="starter-code"># RoboMaze Starter Code
+<button class="copy-button" type="button" onclick="copyCode(this)">Copy code</button>
+<pre><code># RoboMaze Starter Code
 # =====================
 # Work through the tasks in order.
 #
